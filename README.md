@@ -1,6 +1,7 @@
 # Gridsome Starter algrid
 
 Algrid is a simple starter for creating blogs using Gridsome.
+[DEMO](https://algrid.netlify.app/)
 
 ![capture](https://raw.githubusercontent.com/gollowars/gridsome-starter-algrid/master/README.gif)
 
