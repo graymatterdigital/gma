@@ -1,0 +1,16 @@
+sitename: Algrid
+pathPrefix: /
+protocol: https
+domain: example.me
+url: https://example.me
+titleTemplate: "%s - algrid"
+meta:
+  keywords: sample, sample
+  description: "algrid is a simple starter for creating blogs using Gridsome."
+
+about:
+  title: |-
+    About
+  contents: |-
+    <h2>hello</h2>
+    <p>"algrid is a simple starter for creating blogs using Gridsome."</p>

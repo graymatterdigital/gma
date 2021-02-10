@@ -1,0 +1,40 @@
+below($width)
+  $width = $width - 1
+  media = 'all and (max-width: %s)' % $width
+  @media media
+    {block}
+
+above($width)
+  media = 'all and (min-width: %s)' % $width
+  @media media
+    {block}
+
+between($min-width, $max-width)
+  $max-width = $max-width - 1
+  media = 'all and (min-width: %s) and (max-width: %s)' % ($min-width $max-width)
+  @media media
+    {block}
+
+
+pc()
+  +above($mobile)
+    {block}
+
+
+sp()
+  +below($mobile)
+    {block}
+
+pad()
+  +below($pad)
+    {block}
+
+.mobile
+  display none
+  +sp()
+    display block
+
+.pc
+  display block
+  +sp()
+    display none
