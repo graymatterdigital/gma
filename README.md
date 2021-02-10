@@ -37,38 +37,13 @@ ALGOLIA_ADMIN_KEY=XXXXXXXX
 ```
 
 algrid used [gridsome-plugin-algolia](https://gridsome.org/plugins/gridsome-plugin-algolia)
-check the page.
 
 ## Setup blog
 
-check ./data/config.yml
-you can add a site information here.
+you can add a site information into `./data/config.yml`.
+
+## Start developing
 
 ```
-sitename: BLOGNAME
-pathPrefix: /
-protocol: https
-domain: example.me
-url: https://example.me
-titleTemplate: "%s - BLOGNAME"
-meta:
-  keywords: sample, sample
-  description: "algrid is a simple starter for creating blogs using Gridsome."
-
-about:
-  title: |-
-    About
-  contents: |-
-    <h2>hello</h2>
-    <p>"algrid is a simple starter for creating blogs using Gridsome."</p>
-
-
+yarn dev
 ```
-
-## Develop
-
-1. `yarn dev`
-
-## Preview
-
-1. `yarn preview`
