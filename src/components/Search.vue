@@ -19,7 +19,7 @@
                 @keydown.up.prevent="highlightPrevious",
                 @keydown.down.prevent="highlightNext(indices[0].hits.length)",
                 @keydown.enter="goToDoc(indices)",
-                @input="refine($event.currentTarget.value)")
+                @input="inputHandler(refine, $event.currentTarget.value)")
           ais-hits.search-box__ais-hits
             //- .search-box__ais-hits__result Results
             g-link.search-box__ais-hits__item(v-if="item.path", slot='item' slot-scope='{ item, index }', :to="item.path", :class="[`item-index--${index}`, { highlight: index == highlightedIndex }]")
@@ -77,7 +77,7 @@ export default {
   watch: {
     $route(to, from) {
       this.closeSearch();
-      this.highlightedIndex = -1;
+      this.resetHighlightedIndex();
     },
     isSearchOpen(isOpen) {
       if (isOpen) {
@@ -94,6 +94,13 @@ export default {
   },
   methods: {
     ...mapActions("Common", ["openSearch", "closeSearch"]),
+    inputHandler(refine, value) {
+      this.resetHighlightedIndex();
+      refine(value);
+    },
+    resetHighlightedIndex() {
+      this.highlightedIndex = -1;
+    },
     fucusBtnClicked() {
       this.$refs.input.focus();
     },
