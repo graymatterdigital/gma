@@ -2,7 +2,7 @@
 
 Algrid is a simple starter for creating blogs using Gridsome.
 
-![capture](./README.gif)
+![capture](https://raw.githubusercontent.com/gollowars/gridsome-starter-algrid/master/README.gif)
 
 ## Features
 
