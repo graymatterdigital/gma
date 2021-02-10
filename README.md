@@ -36,7 +36,7 @@ GRIDSOME_ALGOLIA_SEARCH_KEY=XXXXXXXX
 ALGOLIA_ADMIN_KEY=XXXXXXXX
 ```
 
-algrid used [gridsome-plugin-algolia](https://gridsome.org/plugins/gridsome-plugin-algolia)
+algrid use [gridsome-plugin-algolia](https://gridsome.org/plugins/gridsome-plugin-algolia)
 
 ## Setup blog
 
