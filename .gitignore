@@ -78,7 +78,7 @@ src/.vuepress/public/viewer/*
 src/.temp
 node_modules
 dist
-yarn.lock
+# yarn.lock
 
 # algolia
 .env
