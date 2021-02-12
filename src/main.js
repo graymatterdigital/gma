@@ -31,39 +31,39 @@ import Config from "@data/config.yml";
 export default function(Vue, { appOptions, head, isClient, router }) {
   appOptions.store = store;
 
-  head.htmlAttrs = { lang: "ja" };
-  [
-    {
-      name: "keywords",
-      content: `${Config.meta.keywords}`,
-    },
-    {
-      name: "description",
-      content: `${Config.meta.description}`,
-    },
-    {
-      property: "og:title",
-      content: `${Config.sitename}`,
-    },
-    {
-      property: "og:description",
-      content: `${Config.meta.description}`,
-    },
-    {
-      property: "og:image",
-      content: `${Config.url}/assets/images/og.jpg`,
-    },
-    {
-      name: "twitter:image",
-      content: `${Config.url}/assets/images/og.jpg`,
-    },
-    {
-      name: "twitter:title",
-      content: `${Config.sitename}`,
-    },
-  ].forEach((meta) => {
-    head.meta.push(meta);
-  });
+  // head.htmlAttrs = { lang: "ja" };
+  // [
+  //   {
+  //     name: "keywords",
+  //     content: `${Config.meta.keywords}`,
+  //   },
+  //   {
+  //     name: "description",
+  //     content: `${Config.meta.description}`,
+  //   },
+  //   {
+  //     property: "og:title",
+  //     content: `${Config.sitename}`,
+  //   },
+  //   {
+  //     property: "og:description",
+  //     content: `${Config.meta.description}`,
+  //   },
+  //   {
+  //     property: "og:image",
+  //     content: `${Config.url}/assets/images/og.jpg`,
+  //   },
+  //   {
+  //     name: "twitter:image",
+  //     content: `${Config.url}/assets/images/og.jpg`,
+  //   },
+  //   {
+  //     name: "twitter:title",
+  //     content: `${Config.sitename}`,
+  //   },
+  // ].forEach((meta) => {
+  //   head.meta.push(meta);
+  // });
 
   Vue.component("Layout", DefaultLayout);
   Vue.use(InfiniteLoading);

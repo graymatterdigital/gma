@@ -46,8 +46,40 @@ export default {
     ItemLimt: itemLimt,
   },
   mixins: [InfiniteScrollMixin],
-  metaInfo: {
-    title: "Home",
+  metaInfo() {
+    return {
+      title: `Home`,
+      meta: [
+        {
+          name: "keywords",
+          content: `${Config.meta.keywords}`,
+        },
+        {
+          name: "description",
+          content: `${Config.meta.description}`,
+        },
+        {
+          property: "og:title",
+          content: `${Config.sitename}`,
+        },
+        {
+          property: "og:description",
+          content: `${Config.meta.description}`,
+        },
+        {
+          property: "og:image",
+          content: `${Config.url}/assets/images/og.jpg`,
+        },
+        {
+          name: "twitter:image",
+          content: `${Config.url}/assets/images/og.jpg`,
+        },
+        {
+          name: "twitter:title",
+          content: `${Config.sitename}`,
+        },
+      ],
+    };
   },
   computed: {},
   async mounted() {},

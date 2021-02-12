@@ -11,7 +11,7 @@
               .info-block__category__block( if="$article.tags", v-for="(cat, index) in $article.tags")
                 g-link.link-underline(:to="cat.path") {{cat.id}}
 
-      .catch(v-if="!isEmptyCatchImage")
+      .catch(v-if="$article.catch")
         g-image.catch__image(:src="getCatchImage($article.catch)")
 
 
@@ -66,6 +66,10 @@ export default {
       title: `${this.$article.title}`,
       meta: [
         {
+          name: "keywords",
+          content: `${this.$article.meta.keywords},${Config.meta.keywords}`,
+        },
+        {
           name: "description",
           content: `${this.$article.meta.description}`,
         },
@@ -74,20 +78,20 @@ export default {
           content: `${this.$article.title}`,
         },
         {
+          property: "og:keywords",
+          content: `${this.$article.meta.keywords},${Config.meta.keywords}`,
+        },
+        {
           property: "og:description",
           content: `${this.$article.meta.description}`,
         },
         {
           property: "og:image",
-          content: `https://${Config.domain}${this.getCatchImage(
-            this.$article.catch
-          )}`,
+          content: `https://${Config.domain}${this.OgImage}`,
         },
         {
           name: "twitter:image",
-          content: `https://${Config.domain}${this.getCatchImage(
-            this.$article.catch
-          )}`,
+          content: `https://${Config.domain}${this.OgImage}`,
         },
         {
           name: "twitter:title",
@@ -99,12 +103,10 @@ export default {
   data() {
     return {
       catchImage: null,
-      isEmptyCatchImage: true,
       noImage: null,
     };
   },
   mounted() {
-    // console.log("Config:", Config.sitename);
     this.closeSearch();
   },
   watch: {
@@ -115,27 +117,42 @@ export default {
   },
   updated() {},
   computed: {
+    isNotCatchimage() {
+      return this.$article.catch == "" || this.$article.catch == null;
+    },
     $article() {
       let date = new Date(this.$page.article.date);
       this.$page.article.datestr = dateformat(date, "mediumDate");
       return this.$page.article;
+    },
+    OgImage() {
+      let image = null;
+      if (!this.isNotCatchimage) {
+        try {
+          image = require(`!!assets-loader!@contents/${this.$article.catch}`)
+            .src;
+        } catch (error) {
+          image = "/assets/images/og.jpg";
+        }
+      } else {
+        image = "/assets/images/og.jpg";
+      }
+
+      return image;
     },
   },
   methods: {
     ...mapActions("Common", ["closeSearch"]),
     initCatchImage() {
       this.catchImage = null;
-      this.isEmptyCatchImage = true;
-      this.getCatchImage();
+      this.getCatchImage(this.$article.catch);
     },
     getCatchImage(path) {
-      // this.initCatchImage();
-      if (this.catchImage == null) {
+      if (!this.isNotCatchimage && this.catchImage == null) {
         try {
           this.catchImage = require(`!!assets-loader!@contents/${path}`).src;
-          this.isEmptyCatchImage = false;
         } catch (error) {
-          this.noimage = require(`!!assets-loader!@/assets/noimage.jpg`).src;
+          this.catchImage = require(`!!assets-loader!@images/noimage.jpg`).src;
         }
       }
       return this.catchImage;
