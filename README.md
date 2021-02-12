@@ -1,4 +1,4 @@
-# Gridsome Starter algrid
+# Gridsome Starter Algrid
 
 Algrid is a gridsome simple starter for creating blogs using Algolia for search, and implementing infinite scroll.
 
