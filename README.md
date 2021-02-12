@@ -1,6 +1,6 @@
 # Gridsome Starter algrid
 
-Algrid is a gridsome simple starter for creating blogs using Algolia and implementing infinite scroll.
+Algrid is a gridsome simple starter for creating blogs using Algolia for search, and implementing infinite scroll.
 
 [DEMO](https://algrid.netlify.app/)
 
